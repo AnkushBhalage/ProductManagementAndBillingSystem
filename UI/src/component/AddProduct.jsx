@@ -1,33 +1,177 @@
 import React from "react";
-
+import { useState, useEffect } from "react";
+import { useHistory, useParams } from "react-router-dom";
+import { Row, Col } from "reactstrap";
+import { ToastContainer } from "react-toastify";
+import { Container } from "reactstrap";
+import service from "./service";
+import Navbarrr from "./Navbarrr";
 function AddProduct() {
-  return (<div className="container">
-      <h1 className="text-center"> Add New Product</h1>
-      <form style={{ width: "550px", textAlign: "center", marginLeft: "150px" }}>
-      <div className="form-group">
-          <input
-            type="text"
-            className="form-control col-4"
-            id="pname"
-            placeholder="Enter Product Name"
-          />
-          </div>
-          <br />
-          <div className="form-group">
-          <input
-            type="text"
-            className="form-control col-4"
-            id="companyname"
-            placeholder="Enter Comany Name"
-          />
-          </div>
-          <br />
-          <div>
-            <button className="btn btn-primary">Save</button>{' '}
-            <button className="btn btn-danger">Cancel</button>
-          </div>
-      </form>
-  </div>);
+  const [name, setName] = useState("");
+  const [rate, setRate] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [vendors, setVendors] = useState([]);
+  const [vendor,setVendor]=useState([]);
+  const { id } = useParams();
+  const history = useHistory();
+  const cancelRequest = () => {
+    history.push("/CustomerList");
+  };
+  const addNewProduct = (e) => {
+    e.preventDefault();
+    if (name.length == 0) {
+      alert("Enter Product name");
+
+      history.push("/AddProduct");
+    } else if (rate.length == 0) { alert("Enter Rate of product"); history.push("/AddProduct"); }
+    else if (quantity.length == 0) { alert("Enter quantity"); history.push("/AddProduct") }
+
+    else {
+      const product = { name, rate, quantity,vendor};
+      if (id) {
+        service
+          .updateProduct(product)
+          .then((response) => {
+            console.log(vendor);
+            console.log("Product data updated successfully", response.data);
+            history.push("/ProductList");
+
+          })
+          .catch((error) => {
+            console.log("something went wrong", error);
+          });
+      } else {
+        service
+          .addProduct(product)
+          .then((response) => {
+            console.log("product data updated successfully", response.data);
+            history.push("/ProductList");
+            history.push("/AddProduct");
+          })
+          .catch((error) => {
+            console.log("error occured", error);
+          });
+      }
+    }
+  };
+  useEffect(() => {
+    service
+      .getAllVendors()
+      .then((response) => {
+        setVendors (response.data);
+      })
+      .catch((error) => {
+        console.log("something went wrong", error);
+      });
+    if (id) {
+      service
+        .getProduct(id)
+        .then((product) => {
+          setName(product.data.name);
+          setRate(product.data.address);
+          setQuantity(product.data.quantity);
+        })
+        .catch((error) => {
+          console.log("error occured in useEffect", error);
+        });
+    }
+  }, []);
+  const onddlchange = (e) => {
+    alert("Ankush");
+    service.getVendorByName(e.target.value).then((response) => {
+      setVendor(response.data);
+    });
+    alert(vendor.name);
+  };
+  return (
+    <div className="container">
+      <ToastContainer />
+      <Container>
+        <Row>
+          <Col md={3}>
+            <Navbarrr />
+          </Col>
+          <Col md={9}>
+            <div className="app-wrapper">
+              <div>
+                <h2 className="text-center">Add New Product</h2>
+              </div>
+              <form
+                style={{
+                  width: "550px",
+                  textAlign: "center",
+                  marginLeft: "150px",
+                }}
+              >
+                <div className="form-group">
+                  <input
+                    type="text"
+                    className="form-control col-12"
+                    placeholder="Enter Product Name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                </div>
+                <br />
+                <div className="form-group">
+                  <input
+                    type="number"
+                    className="form-control col-12"
+                    placeholder="Enter Rate of Product"
+                    value={rate}
+                    onChange={(e) => setRate(e.target.value)}
+                  />
+                  <br />
+                </div>
+                <div className="form-group">
+                  <input
+                    type="number"
+                    className="form-control col-12"
+                    placeholder="Enter Quantity"
+                    value={quantity}
+                    onChange={(e) => setQuantity(e.target.value)}
+                  />
+                  <br />
+                </div>
+                <div className="form-group">
+                  <select className="form-control" onChange={onddlchange}>
+                    <option value="0">Select Vendor</option>
+                    {
+                      vendors.map((vendor) => (
+                        <option key={vendor.id} value={vendor.name}>{vendor.name}</option>
+                      ))
+                    }
+                  </select>
+                </div>
+                <div className="form-group">
+                  {/* <input
+                    type="text"
+                    className="form-control col-12"
+                    
+                    value={vendor.mobile}
+                    
+                  /> */}
+                  <h2>Helloo {vendor.mobile}</h2>
+                  <br />
+                </div>
+                <div>
+                  <button
+                    className="btn btn-primary"
+                    onClick={(e) => addNewProduct(e)}
+                  >
+                    Save
+                  </button>{" "}
+                  <button className="btn btn-danger" onClick={cancelRequest}>
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </div>
+  );
 }
 
 export default AddProduct;

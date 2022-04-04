@@ -1,38 +1,118 @@
-.App {
+*{
+  margin:0;
+  padding:0;
+}
+/* .container{
+  /* background-color :crimson; */
+  /* background:linear-gradient(135 deg,#850c62,#f80759); */
+  /* width: 100%; */
+  /* min-height: 100vh; */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* margin-top: -90px; */
+  
+/* } */ */
+.app-wrapper{
+  background-color: #fff;
+  min-width: 350px;
+   min-height: 400px; 
+  padding: 30px;
+  box-sizing: 5px;
+  border-radius: 5px;
+  margin-top: 150px;
+}
+.title{
+  color: #f80759;
   text-align: center;
+  margin: 80px 0px 40px 0px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.name,.email,.password,.id,.date,.price{
+  margin: 20px;
+  color: #969292;
+  font-size: 16px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.password{
+  margin-bottom: 40px;
 }
+.input{
+  height: 32px;
+  font-size: 20px;
+  outline: none;
+  width: 100%;
+  border-top-style: none;
+  border-left-style: none;
+  border-right-style: none;
+  border-bottom-style: 2px solid black;
+  margin-bottom: 10px;
+}
+.error{
+  color: red;
+}
+.submit{
+  display: flex;
+  text-transform: uppercase;
+  font-size: 20px;
+  border-radius: 25px;
+  color: white;
+  padding: 10px 60px;
+  background: linear-gradient(to right,#ab1dcf,#f80759);
+  box-shadow: rgba(0,0,0,0.3)0px 19px 38px,rgba(0,0,0,0.22)0px 15px 12px;
+  margin: auto;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+.addCustomer,.addProduct{
+  display:flex;
+  font-size: 20px;
+  border-radius:20px;
+  padding: 10px 60px;
+    background-color: #f80759;
+  margin-left: 30px;
+  padding: auto;
+}
+.addVendor{
+  display:flex;
+  font-size: 20px;
+  border-radius:20px;
+  padding: 10px 60px;
+  margin: auto;
+  background-color:#f80759;
+  margin-left: 550px;
+  padding: auto;
+  margin-top: -50px;
 
+}
+.cancel{
+  display:flex;
+  font-size: 20px;
+  border-radius:20px;
+  padding: 10px 60px;
+  margin: auto;
+  background-color:red;
+  margin-left: 320px;
+  padding: auto;
+  margin-top: -50px;
+}
+button:active{
+  transform: translateY(2px);
+}
+.form-success{
+  display: flex;
+  justify-content: center;
+  margin-top: 250px;
+  min-width: 370px;
+  color: #f80759;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* font-size: calc(10px + 2vmin); */
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
