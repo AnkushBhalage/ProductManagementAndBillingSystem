@@ -13,7 +13,10 @@ const Login = () => {
     } else if (password.length === 0) {
       alert("enter your password");
     }
-    service.authenticate(email, password).then((response) => {
+    const login={email,password};
+    console.log("Login",login)
+    service.authenticate(login).then((response) => {
+      console.log("Login",login)
       if (response.status === 200) {
         const result = response.data;
         localStorage.setItem("Name", result.name);

@@ -72,13 +72,13 @@ function Navbarrr() {
         </ListGroupItem>
         <ListGroupItem
           tag="a"
-          href="/ProductList"
+          href="/Purchaseorders"
           action
           className="bg-primary"
           // className="bg-primary"
           style={{ color: "white"}}
         >
-          Show All Products
+          Available Products
         </ListGroupItem>
         <ListGroupItem
           tag="a"
@@ -91,14 +91,15 @@ function Navbarrr() {
         </ListGroupItem>
         {/* <Link to={"#!"} className="nav-link">   Add Book</Link> */}
         {localStorage.getItem("Role") === "ADMIN" ? (
-          <Link
-          href="/AddnewCustomer"
-          className="nav-link bg-primary"
-          style={{ color: "white" }}
-          
-        >
+          <ListGroupItem
+          tag="a"
+          href="/AddNewUser"
+          action
+          className="bg-primary"
+          style={{ color: "white"}}
+          >
           Add New User
-        </Link>
+        </ListGroupItem>
       ) : ''}
         <ListGroupItem
           tag="a"

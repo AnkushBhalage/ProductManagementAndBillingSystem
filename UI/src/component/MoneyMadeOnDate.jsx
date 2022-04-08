@@ -67,7 +67,7 @@ function MoneyMadeOndate(){
                          <tbody>
                              {sellOrder.map((s)=>
                              <tr>
-                             <td style={{ color: "white" }}>{s.productName}</td>
+                             <td style={{ color: "white" }}>{s.product.name}</td>
                              <td style={{ color: "white" }}>{s.quantity}</td>
                              <td style={{ color: "white" }}>{s.price}</td>
                              <td style={{ color: "white" }}>{s.customer.name}</td>

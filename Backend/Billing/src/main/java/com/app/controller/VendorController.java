@@ -10,10 +10,12 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.pojos.Customer;
 import com.app.pojos.Vendor;
 import com.app.service.IVendorService;
 
@@ -47,6 +49,10 @@ public class VendorController {
 	@PostMapping
 	public Vendor addVendor(@RequestBody Vendor v) {
 		return vendorService.addVendor(v);
+	}
+	@PutMapping
+	public ResponseEntity<?> updateVendor(@RequestBody Vendor v){
+		return new ResponseEntity<>(vendorService.addVendor(v),HttpStatus.ACCEPTED);
 	}
 
 	@DeleteMapping("/{id}")

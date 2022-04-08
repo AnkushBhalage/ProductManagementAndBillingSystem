@@ -43,8 +43,8 @@ const removeVendor = (id) => {
 const getCustomerByName = (name) => {
   return httpClient.get(`/api/customer/name/${name}`);
 };
-const authenticate = (email, password) => {
-  return httpClient.get(`/api/user/${email}/${password}`);
+const authenticate = (login) => {
+  return httpClient.post("/api/user",login);
 };
 const getAllProducts = () => {
   return httpClient.get("/api/product");
@@ -52,10 +52,10 @@ const getAllProducts = () => {
 const removeProduct = (id) => {
   return httpClient.delete(`/api/product/${id}`);
 };
-const addProduct = (data) => {
-  return httpClient.post("/api/product", data);
+const addPurchaseOrder = (data) => {
+  return httpClient.post("/api/purchaseorder", data);
 };
-const getProduct=(id)=>{
+const getProduct=(id)=>{ 
   return httpClient.get(`/api/product/${id}`);
 };
 const updateProduct = (data) => {
@@ -74,6 +74,13 @@ const addSellOrder=(inputFields,id,date)=>{
 const findProductsByDate=(date)=>{
   return httpClient.get(`/api/sellorder/money/${date}`);
 }
+
+const getAllPurchaseOrders=()=>{
+  return httpClient.get("/api/purchaseorder");
+}
+const addNewUser=(data)=>{
+  return httpClient.post("/api/user/add",data);
+}
 export default {
   getAll,
   create,
@@ -89,10 +96,12 @@ export default {
   authenticate,
   getAllProducts,
   removeProduct,
-  addProduct,
+  addPurchaseOrder,
   getProduct,updateProduct,
   getVendorByName,
   getProductByName,addBill,
   addSellOrder,
-  findProductsByDate
+  findProductsByDate,
+  getAllPurchaseOrders,
+  addNewUser
 };

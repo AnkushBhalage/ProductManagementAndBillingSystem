@@ -42,7 +42,7 @@ function VendorsList() {
           </Col>
           <Col md={9}>
             <div className="app-wrapper">
-        <h3 className="text-center">List of Vednors</h3>
+        <h3 className="text-center">List of Vendors</h3>
         </div>
         <hr />
         <div>
@@ -66,7 +66,7 @@ function VendorsList() {
                   <td>
                     <Link
                       className="btn btn-info"
-                      to={`/vendors/edit/${vendor.id}`}
+                      to={`/updateVendors/edit/${vendor.id}`}
                     >
                       Update
                     </Link>

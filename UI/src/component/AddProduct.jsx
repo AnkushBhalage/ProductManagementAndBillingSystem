@@ -27,10 +27,12 @@ function AddProduct() {
     else if (quantity.length == 0) { alert("Enter quantity"); history.push("/AddProduct") }
 
     else {
-      const product = { name, rate, quantity,vendor};
+      const product={name};
+      const purchaseorder = { product, rate, quantity,vendor};
+      console.log("purchaseorder",purchaseorder);
       if (id) {
         service
-          .updateProduct(product)
+          .updateProduct(purchaseorder)
           .then((response) => {
             console.log(vendor);
             console.log("Product data updated successfully", response.data);
@@ -42,7 +44,7 @@ function AddProduct() {
           });
       } else {
         service
-          .addProduct(product)
+          .addPurchaseOrder(purchaseorder)
           .then((response) => {
             console.log("product data updated successfully", response.data);
             history.push("/ProductList");

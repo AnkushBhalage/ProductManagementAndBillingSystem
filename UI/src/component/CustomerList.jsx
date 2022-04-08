@@ -66,7 +66,7 @@ const CustomerList = () => {
                       <td>
                         <Link
                           className="btn btn-info"
-                          to={`/customer/edit/${customer.id}`}
+                          to={`/updateCustomer/edit/${customer.id}`}
                         >
                           Update
                         </Link>

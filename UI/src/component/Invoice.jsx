@@ -161,6 +161,8 @@ function Invoice() {
 
                         {
                             inputFields.map(inputfield => (
+                                inputfield.price=inputfield.rate* inputfield.quantity,
+                              
                                 <div key={inputfield.id}>
                                     <Row>
                                         <Col md={3}>
@@ -193,7 +195,7 @@ function Invoice() {
                                             <div className="form-group">
                                                 <input type="text" name="price"
                                                     placeholder="Price"
-                                                    variant="filled" className="form-control" value={inputfield.price} onChange={event => handleChangeInput(inputfield.id, event)} />
+                                                    variant="filled" className="form-control" value={inputfield.price} /*onChange={event => handleChangeInput(inputfield.id, event)}*/ />
                                             </div>
                                         </Col>
                                         <Col md={3}>
@@ -209,7 +211,7 @@ function Invoice() {
                         <Row>
                             <Col md={3}>
                            
-                        <button className="btn btn-primary" onClick={handleSubmit}>send</button>{" "}
+                        <button className="btn btn-primary" onClick={handleSubmit}>Save</button>{" "}
                         
                             </Col>
                             <Col md={3}>

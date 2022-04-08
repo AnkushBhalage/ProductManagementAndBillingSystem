@@ -12,6 +12,7 @@ const ProductList = () => {
       .then((response) => {
         console.log("Printing Products data", response.data);
         setProducts(response.data);
+        console.log("product list",products);
       })
       .catch((error) => {
         console.log("something went wrong", error);

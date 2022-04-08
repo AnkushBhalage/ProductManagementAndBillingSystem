@@ -18,7 +18,7 @@ function AddNewVendor() {
   };
   const addNewVendor = (e) => {
     e.preventDefault();
-    const vendor = { name, address, firmName, mobile };
+    const vendor = { name, address, firmName, mobile ,id};
     if (id) {
       service
         .updateVendor(vendor)
