@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,9 +31,7 @@ public class SellOrder {
 	@Column
 	private int quantity;
 
-	@Column
-	private String productName;
-
+	
 	@Column
 	private int price;
 
@@ -41,4 +40,6 @@ public class SellOrder {
 
 	@ManyToOne()
 	private Customer customer;
+	@ManyToOne()
+	private Product product;
 }
