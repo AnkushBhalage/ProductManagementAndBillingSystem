@@ -36,6 +36,8 @@ const history=useHistory();
                console.log("Error occured",error);
              })
            }else{
+             if(mobile.length!=10)
+               alert("mobile no is not valid")
             service.create(customer)
             .then((response)=>{
               console.log(response.data);

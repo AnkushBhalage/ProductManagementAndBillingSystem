@@ -10,13 +10,13 @@ const Login = () => {
   const validateUser = () => {
    const login={email,password};
    console.log(email,password);
-   alert("hi");
+   
     service.authenticate(email,password).then((response) => {
       
       localStorage.setItem("Name",response.data.name);
       localStorage.setItem("Role",response.data.role)
       history.push("/Home");
-      alert("hi");
+      // alert("hi");
       console.log(response.data);
       
         

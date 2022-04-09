@@ -23,6 +23,8 @@ const AddNewUser=()=>{
     const saveUser =(e)=>{
         e.preventDefault();
         if(password===cpassword){
+            if(mobile.length!=10)
+              alert("Mobile no is not valid");
             const data={name,email,password,mobile,role};
             console.log(data);
             service.addNewUser(data)
@@ -74,12 +76,12 @@ const AddNewUser=()=>{
                                </Col>
                            <Col md={4}>
                                <div className="form-group">
-                                 <input type="text" value={password} pattern="[0-9]+" placeholder="Enter Password" onChange={e=>setPassword(e.target.value)} className="form-control" />
+                                 <input type="password" value={password} pattern="[0-9]+" placeholder="Enter Password" onChange={e=>setPassword(e.target.value)} className="form-control" />
                                </div>
                            </Col>
                            <Col md={4}>
                                <div className="form-group">
-                                 <input type="text" value={cpassword} placeholder="Enter Confirm Password" onChange={e=>setcpassword(e.target.value)} className="form-control" />
+                                 <input type="password" value={cpassword} placeholder="Enter Confirm Password" onChange={e=>setcpassword(e.target.value)} className="form-control" />
                                </div>
                            </Col>
                        </Row>
