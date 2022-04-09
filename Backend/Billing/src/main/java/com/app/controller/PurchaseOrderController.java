@@ -2,6 +2,8 @@ package com.app.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,11 +42,11 @@ public class PurchaseOrderController {
 
 	@JsonIgnore
 	@PostMapping
-	public ResponseEntity<?> addNewPurchaseOrder(@RequestBody PurchaseOrder p) {
+	public ResponseEntity<?> addNewPurchaseOrder(@Valid @RequestBody PurchaseOrder p) {
 		System.out.println(p);
 		System.out.println(p.getProduct());
 		productService.addProduct(p.getProduct());
-		
+
 		return new ResponseEntity<>(PurchaseOrderService.addNewProduc(p), HttpStatus.CREATED);
 	}
 

@@ -2,6 +2,8 @@ package com.app.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,12 +43,12 @@ public class CustomerController {
 	}
 
 	@PostMapping
-	public ResponseEntity<?> addCustomerDetails(@RequestBody Customer c) {
+	public ResponseEntity<?> addCustomerDetails(@Valid @RequestBody Customer c) {
 		return new ResponseEntity<Customer>(customerService.addCustomer(c), HttpStatus.CREATED);
 	}
 
 	@PutMapping
-	public ResponseEntity<?> updateCustomer(@RequestBody Customer c){
+	public ResponseEntity<?> updateCustomer(@Valid @RequestBody Customer c){
 		return new ResponseEntity<Customer>(customerService.addCustomer(c),HttpStatus.CREATED);
 	}
 	

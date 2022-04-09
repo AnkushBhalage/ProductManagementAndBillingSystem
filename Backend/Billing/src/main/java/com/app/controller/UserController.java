@@ -1,5 +1,7 @@
 package com.app.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,13 +24,13 @@ public class UserController {
 	@Autowired
 	private IUserService userService;
 
-	@PostMapping
-	ResponseEntity<?> getUserDetails(@RequestBody Login login) {
-		return new ResponseEntity<>(userService.getUser(login), HttpStatus.OK);
+	@GetMapping("/{email}/{password}")
+	ResponseEntity<?> getUserDetails(@PathVariable String email, @PathVariable String password) {
+		return new ResponseEntity<>(userService.getUser(email, password), HttpStatus.OK);
 	}
 	
 	@PostMapping("/add")
-	ResponseEntity<?> addNewUser(@RequestBody User user){
+	ResponseEntity<?> addNewUser(@Valid @RequestBody User user){
 		return new ResponseEntity<>(userService.addNewUser(user),HttpStatus.ACCEPTED);
 	}
 }

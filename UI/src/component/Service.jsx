@@ -43,8 +43,8 @@ const removeVendor = (id) => {
 const getCustomerByName = (name) => {
   return httpClient.get(`/api/customer/name/${name}`);
 };
-const authenticate = (login) => {
-  return httpClient.post("/api/user",login);
+const authenticate = (email,password) => {
+  return httpClient.get(`/api/user/${email}/${password}`);
 };
 const getAllProducts = () => {
   return httpClient.get("/api/product");

@@ -29,7 +29,7 @@ const AddNewUser=()=>{
             .then((response)=>{
                 console.log(response.data);
                 history.push("/AddNewCustomer");
-                history.push("/AddNewUser");
+                 history.push("/AddNewUser");
             }).catch((error)=>{
                 console.log("Error occured",error);
             })
@@ -61,7 +61,7 @@ const AddNewUser=()=>{
                        </Col>
                        <Col md={6}>
                            <div className="form-group">
-                            <input type="text" className="form-control" value={email} placeholder="Enter Email Id" onChange={e=>setEmail(e.target.value)}/>
+                            <input type="email" className="form-control" value={email} placeholder="Enter Email Id" onChange={e=>setEmail(e.target.value)}/>
                            </div>
                        </Col>
                        </Row>

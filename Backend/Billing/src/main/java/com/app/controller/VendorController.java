@@ -2,6 +2,8 @@ package com.app.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.app.pojos.Customer;
 import com.app.pojos.Vendor;
 import com.app.service.IVendorService;
 
@@ -24,7 +25,6 @@ import com.app.service.IVendorService;
 @CrossOrigin(origins = "http://localhost:3000")
 public class VendorController {
 
-	
 	@Autowired
 	private IVendorService vendorService;
 
@@ -38,21 +38,23 @@ public class VendorController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<?> getVendorById(@PathVariable int id){
-		return new ResponseEntity<>( vendorService.getVendorById(id),HttpStatus.OK);
+	public ResponseEntity<?> getVendorById(@PathVariable int id) {
+		return new ResponseEntity<>(vendorService.getVendorById(id), HttpStatus.OK);
 	}
+
 	@GetMapping("/name/{name}")
-	public ResponseEntity<?> getVendorByName(@PathVariable String name){
-		return new ResponseEntity<>( vendorService.getVendorByName(name),HttpStatus.OK);
+	public ResponseEntity<?> getVendorByName(@PathVariable String name) {
+		return new ResponseEntity<>(vendorService.getVendorByName(name), HttpStatus.OK);
 	}
 
 	@PostMapping
-	public Vendor addVendor(@RequestBody Vendor v) {
+	public Vendor addVendor(@Valid @RequestBody Vendor v) {
 		return vendorService.addVendor(v);
 	}
+
 	@PutMapping
-	public ResponseEntity<?> updateVendor(@RequestBody Vendor v){
-		return new ResponseEntity<>(vendorService.addVendor(v),HttpStatus.ACCEPTED);
+	public ResponseEntity<?> updateVendor(@Valid @RequestBody Vendor v) {
+		return new ResponseEntity<>(vendorService.addVendor(v), HttpStatus.ACCEPTED);
 	}
 
 	@DeleteMapping("/{id}")

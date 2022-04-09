@@ -3,6 +3,8 @@ package com.app.controller;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,7 +48,7 @@ public class SellOrderController {
 
 	@JsonIgnore
 	@PostMapping("/{custId}/{d}")
-	public String addSellOrders(@RequestBody List<Order> sellorder, @PathVariable int custId, @PathVariable String d) {
+	public String addSellOrders(@Valid @RequestBody List<Order> sellorder, @PathVariable int custId, @PathVariable String d) {
 		LocalDate date = LocalDate.parse(d);
 		System.out.println("CustId and date" + custId + " " + date);
 		// System.out.println(date);

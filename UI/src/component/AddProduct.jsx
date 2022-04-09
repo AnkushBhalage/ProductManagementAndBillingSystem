@@ -47,8 +47,8 @@ function AddProduct() {
           .addPurchaseOrder(purchaseorder)
           .then((response) => {
             console.log("product data updated successfully", response.data);
-            history.push("/ProductList");
-            history.push("/AddProduct");
+            history.push("/Purchaseorders");
+           // history.push("/AddProduct");
           })
           .catch((error) => {
             console.log("error occured", error);
@@ -79,11 +79,11 @@ function AddProduct() {
     }
   }, []);
   const onddlchange = (e) => {
-    alert("Ankush");
+    
     service.getVendorByName(e.target.value).then((response) => {
       setVendor(response.data);
     });
-    alert(vendor.name);
+   
   };
   return (
     <div className="container">
@@ -145,17 +145,7 @@ function AddProduct() {
                     }
                   </select>
                 </div>
-                <div className="form-group">
-                  {/* <input
-                    type="text"
-                    className="form-control col-12"
-                    
-                    value={vendor.mobile}
-                    
-                  /> */}
-                  <h2>Helloo {vendor.mobile}</h2>
-                  <br />
-                </div>
+                
                 <div>
                   <button
                     className="btn btn-primary"

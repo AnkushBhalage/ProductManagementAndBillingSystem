@@ -16,14 +16,21 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "user")
 public class User extends BaseEntity {
-	@Column
+
+	@Column(length = 30)
+
 	private String name;
-	@Column
+
+	@Column(length = 30)
+
 	private String email;
-	@Column
+
+	@Column(length = 30)
 	private String password;
-	@Column
+
+	@Column(length = 10)
 	private long mobile;
+
 	@Enumerated
 	@Column
 	private UserRole role;

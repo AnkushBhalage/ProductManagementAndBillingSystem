@@ -24,7 +24,7 @@ function AddNewVendor() {
         .updateVendor(vendor)
         .then((response) => {
           console.log("vendor data updated successfully", response.data);
-          history.push("/AddNewVendor");
+          history.push("/VendorsList");
         })
         .catch((error) => {
           console.log("something went wrong", error);

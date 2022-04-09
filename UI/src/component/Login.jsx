@@ -8,27 +8,23 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const history = useHistory();
   const validateUser = () => {
-    if (email.length === 0) {
-      alert("enter your email");
-    } else if (password.length === 0) {
-      alert("enter your password");
-    }
-    const login={email,password};
-    console.log("Login",login)
-    service.authenticate(login).then((response) => {
-      console.log("Login",login)
-      if (response.status === 200) {
-        const result = response.data;
-        localStorage.setItem("Name", result.name);
-        localStorage.setItem("Role", result.role);
-
-        alert(localStorage.getItem("Role"));
-
-        history.push("/Home");
-      } else {
-        console.log("Please Enter right Id and Password");
-      }
-    });
+   const login={email,password};
+   console.log(email,password);
+   alert("hi");
+    service.authenticate(email,password).then((response) => {
+      
+      localStorage.setItem("Name",response.data.name);
+      localStorage.setItem("Role",response.data.role)
+      history.push("/Home");
+      alert("hi");
+      console.log(response.data);
+      
+        
+        
+      
+    }).catch((error)=>{
+      alert("email and password not matching",error);
+    })
   };
   return (
     <div

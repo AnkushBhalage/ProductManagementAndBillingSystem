@@ -11,9 +11,7 @@ function MoneyMadeOndate(){
   var t=0;
   const findBydate =(e)=>{
       SetTotal(0);
-     alert(e.target.value);
-     console.log(date);
-     alert(date);
+     
      service.findProductsByDate(date)
      .then((response)=>{
          setSellOrder(response.data);
