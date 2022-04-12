@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { Container, Row, Col } from "react-bootstrap";
 import Navbarrr from "./Navbarrr";
-import service from "./service";
+import service from "./Service";
 const ProductList = () => {
   const [products, setProducts] = useState([]);
   const init = () => {

@@ -4,7 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { Row, Col } from "reactstrap";
 import { ToastContainer } from "react-toastify";
 import { Container } from "reactstrap";
-import service from "./service";
+import service from "./Service";
 import Navbarrr from "./Navbarrr";
 function AddProduct() {
   const [name, setName] = useState("");

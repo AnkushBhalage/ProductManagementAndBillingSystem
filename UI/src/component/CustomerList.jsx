@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import service from "./service";
+import service from "./Service";
 import { Row, Col } from "reactstrap";
 import { ToastContainer } from "react-toastify";
 import { Container } from "reactstrap";

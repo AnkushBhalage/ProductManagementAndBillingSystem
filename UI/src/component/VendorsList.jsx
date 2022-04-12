@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { Col,Row,Container } from "reactstrap";
 import Navbarrr from "./Navbarrr";
-import service from "./service";
+import service from "./Service";
 function VendorsList() {
   const [vendors, setVendors] = useState([]);
   const init = () => {

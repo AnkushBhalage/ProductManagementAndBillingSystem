@@ -4,7 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { Col,Row,Container } from "reactstrap";
 import Navbarrr from "./Navbarrr";
-import service from "./service";
+import service from "./Service";
 function AddNewVendor() {
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { Col, Container, Row } from "reactstrap";
-import service from "./service";
+import service from "./Service";
 import Navbarrr from "./Navbarrr";
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 const AddNewCustomer=()=>{

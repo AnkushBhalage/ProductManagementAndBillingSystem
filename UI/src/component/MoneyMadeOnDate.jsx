@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import { Container,Row,Col, Label } from "reactstrap";
 import Navbarrr from "./Navbarrr";
-import service from "./service";
+import service from "./Service";
 
 function MoneyMadeOndate(){
   const [date,setDate]=useState("");

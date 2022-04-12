@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { Container,Col,Row } from "reactstrap";
 import Navbarrr from "./Navbarrr";
-import service from "./service";
+import service from "./Service";
 
 const AddNewUser=()=>{
     const [name,Setname]=useState("");

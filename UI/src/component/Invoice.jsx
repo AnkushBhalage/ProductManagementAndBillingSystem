@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { ToastContainer } from "react-toastify";
 import { Container, Col, Row } from "reactstrap";
 import Navbarrr from "./Navbarrr";
-import service from './service';
+import service from './Service';
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {PatchMinus,PatchPlus}from "react-bootstrap-icons";
